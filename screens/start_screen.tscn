@@ -30,7 +30,6 @@ grow_vertical = 0
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-disabled = true
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
@@ -43,4 +42,5 @@ text = "Options
 layout_mode = 2
 text = "Quit"
 
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="on_quit"]
