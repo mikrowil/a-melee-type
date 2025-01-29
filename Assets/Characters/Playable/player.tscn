@@ -1,0 +1,153 @@
+[gd_scene load_steps=23 format=3 uid="uid://beswstff8hjaa"]
+
+[ext_resource type="Texture2D" uid="uid://eyuw646o10ja" path="res://test-sprites/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_07gtj"]
+[ext_resource type="Script" path="res://Assets/Characters/Playable/Player.cs" id="1_iffy1"]
+[ext_resource type="Texture2D" uid="uid://6mbvvvdxhhi" path="res://test-sprites/Legacy-Fantasy - High Forest 2.3/Character/Run/Run-Sheet.png" id="2_hovah"]
+[ext_resource type="Texture2D" uid="uid://bqfxynes0mi62" path="res://test-sprites/Legacy-Fantasy - High Forest 2.3/Character/Jump-Start/Jump-Start-Sheet.png" id="2_owuce"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3c5w6"]
+radius = 11.0
+height = 54.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfw34"]
+atlas = ExtResource("2_owuce")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o43pn"]
+atlas = ExtResource("2_owuce")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8de2c"]
+atlas = ExtResource("2_owuce")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wfi0"]
+atlas = ExtResource("2_owuce")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwrmr"]
+atlas = ExtResource("2_hovah")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6wae"]
+atlas = ExtResource("2_hovah")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roj8t"]
+atlas = ExtResource("2_hovah")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da0th"]
+atlas = ExtResource("2_hovah")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kt0s"]
+atlas = ExtResource("2_hovah")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3662"]
+atlas = ExtResource("2_hovah")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au8pi"]
+atlas = ExtResource("2_hovah")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo735"]
+atlas = ExtResource("2_hovah")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrjqr"]
+atlas = ExtResource("1_07gtj")
+region = Rect2(0, 0, 64, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n84ck"]
+atlas = ExtResource("1_07gtj")
+region = Rect2(64, 0, 64, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti82j"]
+atlas = ExtResource("1_07gtj")
+region = Rect2(128, 0, 64, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ginus"]
+atlas = ExtResource("1_07gtj")
+region = Rect2(192, 0, 64, 76)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfe74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfw34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o43pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8de2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wfi0")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwrmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6wae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roj8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da0th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kt0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3662")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au8pi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo735")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrjqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n84ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ti82j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ginus")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_iffy1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3c5w6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wfe74")
+animation = &"Jump"
+autoplay = "new_animation"
+frame = 3
+frame_progress = 1.0
