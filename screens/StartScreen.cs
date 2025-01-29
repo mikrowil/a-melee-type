@@ -17,4 +17,9 @@ public partial class StartScreen : Control
 	{
 		GetTree().Quit();
 	}
+
+	private void _on_start_button_pressed()
+	{
+		GetTree().ChangeSceneToFile("res://screens/testing_stage.tscn");
+	}
 }
